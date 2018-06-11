@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Metodos Utilitarios</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        //Arreglos de numeros
+        var array1 = [4,5,6,1,0,3];
+        var array2 = [9,8,2,7];
+        //JSON tipo string
+        var jsonString = '{"Nombre":"Juan", "Apellido":"Perez"}';
+
+        $("#boton1").click(function(){
+
+          var elementos1 = "Elementos del arreglo 1 <br>";
+          var elementos2 = "Elementos del arreglo 2 <br>";
+
+          var parrafo1 = $("#p1");
+          var parrafo2 = $("#p2");
+          //Metodos para recorrer los  arreglos $.each()
+          $.each(array1, function(indice, valor){
+            elementos1 += valor +"<br>";
+          });
+
+          $.each(array2, function(indice, valor){
+            elementos2 += valor +"<br>";
+          });
+          //Se asigna a los parrafos los elementos que se recorrieron
+          $(parrafo1).html(elementos1);
+          $(parrafo2).html(elementos2);
+        });
+
+        $("#boton2").click(function(){
+          var elementos3 = "Elementos del arreglo 1 mas los del arreglo 2 <br>";
+          //Metodo para unir dos arreglos aqui se agrega los valores del segundo arreglo al primnero
+          $.merge(array1,array2);
+
+          var parrafo3 = $("#p3");
+          //Se recorre los elementos y se los almacena en la variable elementos 3
+          $.each(array1, function(indice, valor){
+            elementos3 += valor + "<br>";
+          });
+          //Se asignan los elementos al parrafo 3
+            $(parrafo3).html(elementos3);
+        });
+
+        $("#boton3").click(function(){
+          var elementos4 = "Filtrar los elementos del arreglo combinado que sean mayores que 4:<br>";
+          var parrafo4 = $("#p4");
+          //variable que almacena el filtro que se le realiza con el $.grep()
+          var filtro = $.grep(array1, function(value, i){
+            return (value > 4)
+          });
+
+            $(parrafo4).html(elementos4 + filtro);
+        });
+
+        $("#boton4").click(function(){
+          var elementos5 = "Propiedades del objeto <br>";
+          var parrafo5 = $("#p5");
+          //Metodo para paesear un string a JSON
+          var objJS = $.parseJSON(jsonString);
+
+          $.each(objJS, function(propiedad, valor){
+            elementos5 += propiedad + ":" + valor + "<br>";
+          });
+          //Metodo para verificar si el objeto esta vacio
+          if($.isEmptyObject(objJS)){
+            elementos5 += "Es un objeto vacio!!";
+          }else{
+            elementos5 += "No es un objeto vacio!!!";
+          }
+
+          $(parrafo5).html(elementos5);
+
+
+        });
+
+      });
+    </script>
+  </head>
+  <body>
+
+    <button id="boton1">Mostrar Arreglos</button>
+    <button id="boton2">Combinar Arreglos</button>
+    <button id="boton3">Filtrar Elementos</button>
+    <button id="boton4">Convertir JSON</button>
+
+
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+  </body>
+</html>

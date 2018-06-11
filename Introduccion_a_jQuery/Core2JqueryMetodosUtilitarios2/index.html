@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Core 2 Jquery Metodos Utilitarios 2</title>
+    <script src="js/jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        //Creacion de Array que vamos a recorrer
+        var arr = ["Carlos", "Pedro", "Maria"];
+        //Creacion de objeto 1 con sus valores
+        var objeto = {
+          nombre:"Juan",
+          apellido:"Perez",
+          edad:"25"
+        };
+        //Creacion de objeto 2 con sus valores
+        var objeto2 ={
+          nombre:"Carlos",
+          apellido:"Ruiz",
+          edad:"40"
+        };
+        //Funcion click del boton1 que muestra los elementos del arreglo con su indice
+        $("#boton1").click(function(){
+          var elementos = "Elementos de Arreglo <br>";
+          var parrafo1 = $("#p1");
+          //Metodo para recorrer el arreglo
+          $.each(arr, function(indice, valor){
+            elementos += "Indice es: "+indice+" su valor es: "+valor+"<br>";
+          });
+          //Asignamos el valor al html
+          $(parrafo1).html(elementos);
+        });
+        //Funcion para mostrar los elementos del objeto creado arriba
+        $("#boton2").click(function(){
+          var elementos = "Elementos del Objeto: <br>";
+          //variable donde asignamos el parrafo2
+          var parrafo2 = $("#p2");
+          //Metodo para recorrer el objeto
+          $.each(objeto, function(propiedad, valor){
+            elementos+= propiedad+" : "+valor+"<br>";
+          });
+          //Asignamos el valor al html
+          $(parrafo2).html(elementos);
+        });
+        //Funcion para recorrer array y buscar un valor
+        $("#boton3").click(function(){
+          var elementos = "";
+          var parrafo3 = $("#p3");
+          //Funcion para buscar el valor en el arreglo
+          if ($.inArray("Juan", arr) !== -1) {
+            $(parrafo3).html("Juan Existe en el Arreglo");
+          }else {
+            $(parrafo3).html("Juan No Existe en el Arreglo");
+          }
+        });
+        //Funcion para cambiar los valores del objeto por el objeto 2
+        $("#boton4").click(function(){
+          var elementos = "Propiedades del Objeto Cambiadas<br>";
+          var parrafo4 = $("#p4");
+          //El nuevo objero lo asignamos a una nueva variable y el metodo $.extend que los cambia
+          var objeto3 = $.extend(objeto, objeto2);
+          // Recorre el cambio y lo muestra en pantalla
+          $.each(objeto3, function(propiedad, valor){
+            elementos += propiedad+" : "+valor+"<hr>"
+          });
+          // asignamos el valor al parrafo
+          $(parrafo4).html(elementos);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+
+    <button id="boton1">Mostrar Arreglo</button>
+    <button id="boton2">Mostrar Vector</button>
+    <button id="boton3">Existe Juan?</button>
+    <button id="boton4">Cambiar Propiedad</button>
+  </body>
+</html>

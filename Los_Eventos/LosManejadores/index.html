@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Los Manejadores</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style media="screen">
+      #MiDiv1{
+        position: absolute;
+        top: 50px;
+        left: 700px;
+        width: 100px ;
+        height:100px ;
+        background: #12D336;
+      }
+      #MiDiv2{
+        position: absolute;
+        top: 200px;
+        left: 900px;
+        width: 100px ;
+        height:100px ;
+        background: #F2BB07;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        //Insertamos en el on la funcion de on click para que nos de la posicion
+        $("#boton1").on("click", function(){
+          var mensaje1 = "<h1>Posicion Div1</h1>";
+          var MiDiv1= $("#MiDiv1");
+          var posicion = MiDiv1.position();
+          mensaje1 +="left: "+posicion.left+", top: "+posicion.top+"";
+          $("#mensaje1").html(mensaje1);
+        });
+        $("#boton2").on("click", function(){
+          var mensaje2 = "<h1>Posicion Div2</h1>";
+          var MiDiv2=$("#MiDiv2");
+          var posicion = MiDiv2.position();
+          mensaje2 +="left: "+posicion.left+", top: "+posicion.top+"";
+          $("#mensaje2").html(mensaje2);
+        });
+        //Le damos un evento para cuando entre el mause con el on para que cambie de tamano
+        $("#MiDiv1").on("mouseenter", function(){
+          var miDiv1 = $("#MiDiv1");
+          miDiv1.height(200);
+          miDiv1.width(200);
+        });
+        $("#MiDiv1").on("mouseout", function(){
+          var miDiv1 = $("#MiDiv1");
+          miDiv1.height(100);
+          miDiv1.width(100);
+        });
+        $("#MiDiv2").on("mouseenter", function(){
+          var miDiv2 = $("#MiDiv2");
+          miDiv2.height(300);
+          miDiv2.width(300);
+        });
+        $("#MiDiv2").on("mouseout", function(){
+          var miDiv2 = $("#MiDiv2");
+          miDiv2.height(100);
+          miDiv2.width(100);
+        });
+      });
+    </script>
+  </head>
+  <body>
+<div class="" id="MiDiv1">Primer Div</div>
+<div class="" id="MiDiv2">Segundo Div</div>
+
+<p id="mensaje1"></p>
+<p id="mensaje2"></p>
+
+<button id="boton1" >Mostrar Posicion Div 1</button>
+<button id="boton2" >Mostrar Posicion Div 2</button>
+  </body>
+</html>

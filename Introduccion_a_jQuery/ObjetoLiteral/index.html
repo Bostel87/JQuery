@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Objeto Literal </title>
+  </head>
+  <body>
+  <script>
+    // Objeto Literal llamado Persona Persona
+    var persona = {
+
+      nombre: "Juan Perez",
+
+      saludar: function(){
+        console.log("Hola me llamo"+persona.nombre);
+      },
+
+      init: function(config){
+        persona.config = config;
+      },
+
+      leerConfig: function(){
+        console.log(persona.config);
+      }
+    };
+
+    console.log(persona.nombre === "Juan Perez");//true
+
+    persona.saludar();//Hola me llamo Juan Perez
+
+    persona.init({
+      nombre:"Maria Roman"
+    });
+
+    persona.leerConfig();
+
+  </script>
+  </body>
+</html>

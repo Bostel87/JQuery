@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Propiedad Privada</title>
+  </head>
+  <body>
+<script type="text/javascript">
+var objeto = (function(){
+  var propiedadPrivada ="Valor Privado";
+  var propiedadPublica ="Valor Publica";
+
+  var cambiarPrivada = function(){
+    propiedadPrivada = "Valor Muy Privado";
+  };
+  var mostrarPrivada = function(){
+    console.log(propiedadPrivada);
+    cambiarPrivada();
+  };
+  return {
+    propiedadPublica: propiedadPublica,
+    mostrarPrivada: mostrarPrivada
+  };
+})();
+  console.log(objeto.propiedadPublica);
+  objeto.mostrarPrivada();
+</script>
+  </body>
+</html>

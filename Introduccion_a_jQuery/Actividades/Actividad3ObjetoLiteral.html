@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad 3 Objeto Literal</title>
+  </head>
+  <body>
+    <form>
+      <legend> <h1>Datos de un Empleado</h1>  </legend>
+      <label for="txtCod">Codigo:</label>
+      <input type="text" id="txtCod" value="">
+      <br>
+      <br>
+      <label for="txtCod">Nombre:</label>
+      <input type="text" id="txtNom" value="">
+      <br>
+      <br>
+      <label for="txtDir">Direccion:</label>
+      <input type="text" id="txtDir" value="">
+      <br>
+      <br>
+      <label for="txtTelf">Telefono:</label>
+      <input type="text" id="txtTelf" value="">
+      <br>
+      <br>
+      <label for="txtEma">E-mail:</label>
+      <input type="text" id="txtEma" value="">
+      <br>
+      <br>
+      <input type="button"  value="Registrar Empleado" onclick="registrarEmpleado()">
+      <input type="button"  value="Mostrar Empleado" onclick="mostrarEmpleado()">
+      <p id="mensaje"></p>
+    </form>
+    <script>
+
+      var empleado = {
+        codigo:null,
+        nombre:null,
+        direccion:null,
+        telefono:null,
+        email:null,
+
+        init:function(propiedades){
+          empleado.propiedades = propiedades;
+        },
+
+        leerPropiedades: function(){
+          return empleado.propiedades;
+        }
+      };
+
+      function registrarEmpleado(){
+        var codigo = document.getElementById('txtCod').value;
+        var nombre = document.getElementById('txtNom').value;
+        var direccion = document.getElementById('txtDir').value;
+        var telefono = document.getElementById('txtTelf').value;
+        var email = document.getElementById('txtEma').value;
+
+        var propiedades = {
+          codigo: codigo,
+          nombre: nombre,
+          direccion: direccion,
+          telefono: telefono,
+          email: email
+        }
+        empleado.init(propiedades);
+        limpiarCampos();
+        alert("Empleado Guardado");
+      }
+
+      function mostrarEmpleado(){
+        var mensaje = "<h1>Empleado</h1><br>"
+        var propiedades = empleado.leerPropiedades();
+
+        mensaje +="El Codigo del Estudiante es: "+propiedades.codigo+"<br>";
+        mensaje +="El Nombre del Estudiante es: "+propiedades.nombre+"<br>";
+        mensaje +="El Direccion del Estudiante es: "+propiedades.direccion+"<br>";
+        mensaje +="El Telefono del Estudiante es: "+propiedades.telefono+"<br>";
+        mensaje +="El email del Estudiante es: "+propiedades.email+"<br>";
+
+        document.getElementById('mensaje').innerHTML = mensaje;
+      }
+
+      function limpiarCampos(){
+        document.getElementById('txtCod').value = "";
+        document.getElementById('txtNom').value = "";
+        document.getElementById('txtDir').value = "";
+        document.getElementById('txtTelf').value = "";
+        document.getElementById('txtEma').value = "";
+      }
+
+    </script>
+  </body>
+</html>

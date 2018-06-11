@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Core 2 Jquery Metodos Utilitarios</title>
+    <script src="js/jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+        //funcion en boton 1 para manipular los parrafos por sus indices 0 y 1
+        $("#boton1").click(function(){
+          var parrafo1 = $("p").get(0);
+          $(parrafo1).html("<b>Mi Primer Parrafo Modificado</b>")
+
+          var parrafo2 = $("p").get(1);
+          $(parrafo2).html("<b>Mi Segundo Parrafo Modificado</b> ")
+        });
+        // Funcion en Boton dos para manipular el ccs backgroundColor del parrafo y del div
+        $("#boton2").click(function(){
+          $("p").css("backgroundColor","green");
+          $("#miDiv").css("background-color", "red");
+        });
+        //funcion para manipular las dimensiones del div
+        $("#boton3").click(function(){
+          $("#miDiv").width("200px");
+          $("#miDiv").height("200px");
+        });
+        //Funcion para agregar el estilo creado con la estiqueta style
+        $("#boton4").click(function(){
+          var p1 = $("p");
+          p1.addClass("Parra");
+        });
+        //Funcion para remover el estilo que agregamos con la etiqueta style
+        $("#boton5").click(function(){
+          var p1 = $("p");
+          p1.removeClass("Parra");
+        });
+      });
+    </script>
+    <style media="screen">
+      .Parra{
+        font-size:large;
+        color: yellow;
+
+      }
+    </style>
+  </head>
+  <body>
+      <div id="miDiv">
+        <p id="p1">Mi primer parrafo</p>
+        <p id="p2">Mi segundo parrafo</p>
+      </div>
+      <button id="boton1">Modificar Texto</button>
+      <button id="boton2">Modificar css</button>
+      <button id="boton3">Modificar Dimension</button>
+      <button id="boton4">Agregar mi Estilo</button>
+      <button id="boton5">Remover mi Estilo</button>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Core de Jquery Metodo atributo</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+    //Metodo documento ready cuando la pagina este completmente cargada
+    //y dentro la funcion que va a tener los eventos de los botones
+      $(document).ready(function(){
+        //primer evento click del boton 1 obtiene los ids con attr de las etiquetas y se las muestra
+        //en mensaje
+        $("#boton1").click(function() {
+          var mensaje = "<h1>IDS</h1>";
+          var idInput = $("#miInput").attr("id");
+          var idEnca = $("#miEnca").attr("id");
+          var idTabla = $("#miTabla").attr("id");
+          var idImagen = $("#miImagen").attr("id");
+
+          mensaje += idInput +"<br>";
+          mensaje += idEnca +"<br>";
+          mensaje += idTabla +"<br>";
+          mensaje += idImagen +"<br>";
+          //metodo pesos .html es para asignar el valos a la etiqueta en este caso mensaje
+          $("#mensaje1").html(mensaje);
+
+        });
+        //Metodo del boton2 que cambia los atributos size a 100 y placeholder con attr pasandole dos parametros
+      $("#boton2").click(function(){
+        $("#miInput").attr("size","100");
+        $("#miInput").attr("placeholder","Cambio de placeholder..!!");
+
+      });
+
+      $("#boton3").click(function(){
+        $("#miEnca").attr("align", "right");
+      });
+
+      $("#boton4").click(function(){
+        $("#miTabla").attr("border", "5");
+        $("#miTabla").attr("cellpadding", "10");
+      });
+
+      $("#boton5").click(function(){
+        $("#miImagen").attr("src", "img/imagen2.jpg");
+      });
+
+
+      });
+    </script>
+  </head>
+  <body>
+  <input type="text" id="miInput" size="30" placeholder="Ingrese un Dato">
+  <h1 id="miEnca" alging="center">El Principio de la Sabiduria es el temor a Dios</h1>
+  <table id="miTabla" border="1" cellpadding="5">
+    <tr>
+      <td>Rojo</td>
+      <td>Verde</td>
+    </tr>
+    <tr>
+      <td>Azul</td>
+      <td>Naranja</td>
+    </tr>
+  </table>
+  <img  id="miImagen"src="img/imagen1.jpg" alt="Imagen1." width="200" height="200">
+  <p id="mensaje1"></p>
+  <br>
+  <br>
+  <button id="boton1">Mostrar Ids</button>
+  <button id="boton2">Cambiar Inputs</button>
+  <button id="boton3">Cambiar Encabezado</button>
+  <button id="boton4">Cambiar Tabla Ids</button>
+  <button id="boton5">Cambiar Imagen</button>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <title>Actividad Objeto Literal</title>
+  </head>
+  <body>
+
+
+  <script type="text/javascript">
+
+  var estudiante = {
+    id:null,
+    nombre:null,
+    edad:null,
+
+    init:function(propiedades){
+      estudiante.propiedades = propiedades;
+    },
+
+    mostrarId:function(){
+      return console.log("El id del estudiante es: "+estudiante.propiedades.id);
+    },
+
+    mostrarNombre:function(){
+      return console.log("El nombre del Estudiante es: "+estudiante.propiedades.nombre);
+    },
+
+    mostrarEdad:function(){
+      return console.log("La edad del Estudiante es: "+estudiante.propiedades.edad);
+    }
+
+  }
+
+  var propiedades = {
+    id:"001",
+    nombre:"Boris",
+    edad:25
+  };
+
+  estudiante.init(propiedades);
+
+  estudiante.mostrarId();
+  estudiante.mostrarNombre();
+  estudiante.mostrarEdad();
+
+  </script>
+  </body>
+</html>
